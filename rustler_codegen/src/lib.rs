@@ -17,7 +17,7 @@ mod ex_struct;
 mod unit_enum;
 mod untagged_enum;
 
-#[proc_macro_derive(NifStruct, attributes(module))]
+#[proc_macro_derive(Struct, attributes(module))]
 pub fn nif_struct(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();

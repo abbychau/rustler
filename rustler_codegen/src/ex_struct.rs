@@ -3,17 +3,17 @@ use ::quote::{self, Tokens};
 
 pub fn transcoder_decorator(ast: &syn::DeriveInput) -> Result<quote::Tokens, &str> {
     let elixir_module = {
-        let ref attr_value = ast.attrs.first().expect("NifStruct requires a 'module' attribute").value;
-        assert!(attr_value.name() == "module", "NifStruct requires a 'module' attribute");
+        let ref attr_value = ast.attrs.first().expect("Struct requires a 'module' attribute").value;
+        assert!(attr_value.name() == "module", "Struct requires a 'module' attribute");
         match *attr_value {
             MetaItem::NameValue(_, Lit::Str(ref value, _)) => format!("Elixir.{}", value),
-            _ => panic!("NifStruct requires a 'module' attribute"),
+            _ => panic!("Struct requires a 'module' attribute"),
         }
     };
 
     let struct_fields = match ast.body {
         Body::Struct(ref data) => data.fields(),
-        Body::Enum(_) => panic!("NifStruct can only be used with structs"),
+        Body::Enum(_) => panic!("Struct can only be used with structs"),
     };
 
     let num_lifetimes = ast.generics.lifetimes.len();
