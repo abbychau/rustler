@@ -25,7 +25,7 @@ pub fn nif_struct(input: TokenStream) -> TokenStream {
     gen.unwrap().parse().unwrap()
 }
 
-#[proc_macro_derive(NifMap)]
+#[proc_macro_derive(Map)]
 pub fn nif_map(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();

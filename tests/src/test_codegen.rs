@@ -23,7 +23,7 @@ pub fn record_echo<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTe
     Ok(record.encode(env))
 }
 
-#[derive(NifMap)]
+#[derive(Map)]
 struct AddMap {
     lhs: i32,
     rhs: i32,
