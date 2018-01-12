@@ -1995,7 +1995,7 @@ pub fn expand<S, D>(src: S, dst: D) -> Result<(), syntex::Error> where
  S: AsRef<Path>, D: AsRef<Path> {
     let mut reg = syntex::Registry::new();
     reg.add_decorator("ExStruct", ex_struct::transcoder_decorator);
-    reg.add_decorator("NifTuple", tuple::transcoder_decorator);
+    reg.add_decorator("Tuple", tuple::transcoder_decorator);
     reg.add_decorator("NifResource", resource::resource_struct_def_decorator);
     reg.add_macro("resource_struct_init",
                   resource::resource_struct_init_macro);

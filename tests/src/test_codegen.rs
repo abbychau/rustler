@@ -1,6 +1,6 @@
 use rustler::{Env, Term, Encoder, NifResult};
 
-#[derive(NifTuple)]
+#[derive(Tuple)]
 struct AddTuple {
     lhs: i32,
     rhs: i32,

@@ -33,7 +33,7 @@ pub fn nif_map(input: TokenStream) -> TokenStream {
     gen.unwrap().parse().unwrap()
 }
 
-#[proc_macro_derive(NifTuple)]
+#[proc_macro_derive(Tuple)]
 pub fn nif_tuple(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();
