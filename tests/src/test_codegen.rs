@@ -46,7 +46,7 @@ pub fn struct_echo<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
     Ok(add_struct.encode(env))
 }
 
-#[derive(NifUnitEnum)]
+#[derive(UnitEnum)]
 enum UnitEnum {
     FooBar,
     Baz,
@@ -57,7 +57,7 @@ pub fn unit_enum_echo<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>
     Ok(unit_enum.encode(env))
 }
 
-#[derive(NifUntaggedEnum)]
+#[derive(UntaggedEnum)]
 enum UntaggedEnum {
     Foo(u32),
     Bar(String),

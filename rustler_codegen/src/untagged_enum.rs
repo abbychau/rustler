@@ -4,7 +4,7 @@ use ::quote::{self, Tokens};
 pub fn transcoder_decorator(ast: &syn::DeriveInput) -> Result<quote::Tokens, &str> {
     let variants = match ast.body {
         Body::Enum(ref variants) => variants,
-        Body::Struct(_) => panic!("NifUntaggedEnum can only be used with enums"),
+        Body::Struct(_) => panic!("UntaggedEnum can only be used with enums"),
     };
 
     let num_lifetimes = ast.generics.lifetimes.len();
@@ -14,10 +14,10 @@ pub fn transcoder_decorator(ast: &syn::DeriveInput) -> Result<quote::Tokens, &st
     for variant in variants {
         if let VariantData::Tuple(ref fields) = variant.data {
             if fields.len() != 1 {
-                panic!("NifUntaggedEnum can only be used with enums that contain all NewType variants.");
+                panic!("UntaggedEnum can only be used with enums that contain all NewType variants.");
             }
         } else {
-            panic!("NifUntaggedEnum can only be used with enums that contain all NewType variants.");
+            panic!("UntaggedEnum can only be used with enums that contain all NewType variants.");
         }
     }
 

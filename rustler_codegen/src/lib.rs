@@ -49,7 +49,7 @@ pub fn nif_record(input: TokenStream) -> TokenStream {
     gen.unwrap().parse().unwrap()
 }
 
-#[proc_macro_derive(NifUnitEnum)]
+#[proc_macro_derive(UnitEnum)]
 pub fn nif_unit_enum(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();
@@ -57,7 +57,7 @@ pub fn nif_unit_enum(input: TokenStream) -> TokenStream {
     gen.unwrap().parse().unwrap()
 }
 
-#[proc_macro_derive(NifUntaggedEnum)]
+#[proc_macro_derive(UntaggedEnum)]
 pub fn nif_untagged_enum(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();
