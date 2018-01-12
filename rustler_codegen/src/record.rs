@@ -3,11 +3,11 @@ use ::quote::{self, Tokens};
 
 pub fn transcoder_decorator(ast: &syn::MacroInput) -> Result<quote::Tokens, &str> {
     let record_tag = {
-        let ref attr_value = ast.attrs.first().expect("NifRecord requires a 'tag' attribute").value;
-        assert!(attr_value.name() == "tag", "NifRecord requires a 'tag' attribute");
+        let ref attr_value = ast.attrs.first().expect("Record requires a 'tag' attribute").value;
+        assert!(attr_value.name() == "tag", "Record requires a 'tag' attribute");
         match *attr_value {
             MetaItem::NameValue(_, Lit::Str(ref value, _)) => value,
-            _ => panic!("NifRecord requires a 'tag' attribute"),
+            _ => panic!("Record requires a 'tag' attribute"),
         }
     };
 

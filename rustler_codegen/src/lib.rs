@@ -41,7 +41,7 @@ pub fn nif_tuple(input: TokenStream) -> TokenStream {
     gen.unwrap().parse().unwrap()
 }
 
-#[proc_macro_derive(NifRecord, attributes(tag))]
+#[proc_macro_derive(Record, attributes(tag))]
 pub fn nif_record(input: TokenStream) -> TokenStream {
     let s = input.to_string();
     let ast = syn::parse_macro_input(&s).unwrap();

@@ -11,7 +11,7 @@ pub fn tuple_echo<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
     Ok(tuple.encode(env))
 }
 
-#[derive(NifRecord)]
+#[derive(Record)]
 #[tag = "record"]
 struct AddRecord {
     lhs: i32,
